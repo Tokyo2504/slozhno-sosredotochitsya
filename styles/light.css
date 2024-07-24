@@ -5,8 +5,44 @@
 */
 
 .page.theme_light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+	--accent-color: #ff8dcb;
+	--main-color: #fff1f7;
+	--main-text-color: #353430;
+	--title-color: #ffc2e6;
+	--title-section-color: var(--main-text-color);
+	--title-content: var(--main-text-color);
+	--title-shadow: #ff0070;
+	--link-shadow: #f1b2ce;
+	--header-text-color: var(--main-text-color);
+	--button-color: var(--main-text-color);
+	--bg-cover: url('../images/cover-image-light.png');
+}
+
+.page.theme_light {
+	background-image: var(--bg-cover);
+}
+
+.page.theme_light .header__rec {
+	display: none;
+}
+
+@media (prefers-color-scheme: light) {
+	.page {
+		--accent-color: #ff8dcb;
+		--main-color: #fff1f7;
+		--main-text-color: #353430;
+		--title-color: #ffc2e6;
+		--title-section-color: var(--main-text-color);
+		--title-content: var(--main-text-color);
+		--title-shadow: #ff0070;
+		--link-shadow: #f1b2ce;
+		--header-text-color: var(--main-text-color);
+		--button-color: var(--main-text-color);
+		--bg-cover: url('../images/cover-image-light.png');
+		background-image: var(--bg-cover);
+	}
+
+	.header__rec {
+		display: none;
+	}
 }
