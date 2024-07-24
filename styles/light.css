@@ -16,9 +16,7 @@
 	--header-text-color: var(--main-text-color);
 	--button-color: var(--main-text-color);
 	--bg-cover: url('../images/cover-image-light.png');
-}
 
-.page.theme_light {
 	background-image: var(--bg-cover);
 }
 
