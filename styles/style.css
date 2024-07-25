@@ -1,9 +1,10 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 .page {
 	color: var(--main-text-color, #f1b2ce);
-	font-family: var(--font-family, sans-serif);
+	font-family: var(--font-family);
 	font-size: 18px;
-	background-image: url('../images/cover-image.png');
+	background-color: var(--main-color);
+	background-image: var(--bg-cover);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -16,8 +17,8 @@
 	&::after {
 		content: '';
 		position: absolute;
-		border-bottom: 1px solid var(--accent-color, #ff0070);
-		border-left: 1px solid var(--accent-color, #ff0070);
+		border-bottom: 1px solid var(--corners-color, #ff0070);
+		border-left: 1px solid var(--corners-color, #ff0070);
 		inset-inline-start: 10px;
 		inset-block-end: 10px;
 		inline-size: 25px;
@@ -27,8 +28,8 @@
 	&::before {
 		content: '';
 		position: absolute;
-		border-top: 1px solid var(--accent-color, #ff0070);
-		border-right: 1px solid var(--accent-color, #ff0070);
+		border-top: 1px solid var(--corners-color, #ff0070);
+		border-right: 1px solid var(--corners-color, #ff0070);
 		inset-inline-end: 10px;
 		inset-block-start: 10px;
 		inline-size: 25px;
@@ -47,7 +48,8 @@
 	align-items: center;
 	padding-inline: 10px;
 	padding-block-start: 10px;
-	block-size: 100dvh;
+	block-size: 100vh;
+	min-block-size: 668px;
 }
 
 .header__rec {
@@ -72,6 +74,7 @@
 }
 
 .header__theme-menu {
+	padding-block-start: 5px;
 	justify-self: end;
 	align-self: center;
 }
@@ -86,7 +89,7 @@
 	display: block;
 	border: 0;
 	padding-inline: 13px;
-	padding-block: 1.5px;
+	padding-block: 2.2px;
 	color: var(--button-color, #ff0070);
 	font-size: 18px;
 	text-transform: lowercase;
@@ -98,20 +101,24 @@
 	}
 
 	&:focus-visible {
-		border-bottom: 1px solid var(--button-color, #ff0070);
+		border-bottom: 1px solid currentColor;
 	}
 }
 
 .header__theme-menu-button_active {
-	border: 1px solid var(--button-color, #ff0070);
+	border: 1px solid currentColor;
 	pointer-events: none;
 }
 
 .header__title {
-	margin-block-end: -9px;
+	padding-block-start: 10px;
 }
 
 .header__text {
+	margin-block-end: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 	align-self: center;
 	color: var(--header-text-color, #000028);
 	font-weight: 700;
@@ -125,6 +132,12 @@
 	gap: 50px;
 	margin-block: 40px;
 	padding-inline: 10px;
+}
+
+/* CONTENT */
+.content {
+	display: grid;
+	gap: 20px;
 }
 
 /* SECTION */
@@ -160,9 +173,7 @@
 	}
 
 	.section-list {
-		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 20px;
 	}
 }
 
@@ -186,8 +197,9 @@
 	margin-block-end: 10px;
 }
 
-.section-list__item:not(:last-child) {
-	margin-block-end: 20px;
+.section-list {
+	display: grid;
+	gap: 20px;
 }
 
 .section__title,
@@ -212,6 +224,9 @@
 }
 
 .section-list__text {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 	line-height: 1.3;
 }
 
@@ -223,15 +238,9 @@
 	}
 
 	&:focus-visible {
-		outline: 1px solid var(--main-text-color);
+		outline: 1px solid currentColor;
 		outline-offset: 1px;
 	}
-}
-
-/* CONTENT */
-.content {
-	display: grid;
-	gap: 20px;
 }
 
 /* TITLE */
@@ -247,8 +256,12 @@
 	background-color: var(--accent-color, #ff0070);
 }
 
-.title-dark {
+.title-accent {
 	color: var(--title-content, #000028);
+}
+
+.title-block {
+	font-weight: 400;
 }
 
 /* GALLERY */
@@ -271,7 +284,8 @@
 	justify-content: center;
 	align-items: center;
 	padding-inline: 10px;
-	block-size: 100dvh;
+	block-size: 100vh;
+	min-block-size: 668px;
 }
 
 /* MEADIAQUERIES */
@@ -290,7 +304,7 @@
 
 	.header {
 		padding-inline: 20px;
-		padding-block-start: 20px;
+		padding-block-start: 17px;
 	}
 
 	.header__rec {
@@ -298,9 +312,12 @@
 		inset-inline-end: 29px;
 	}
 
+	.header__theme-menu {
+		padding-block-start: 10px;
+	}
+
 	.header__title {
 		margin-inline-start: -3%;
-		margin-block-end: -12px;
 	}
 
 	.title {
@@ -308,9 +325,9 @@
 	}
 
 	.header__text {
+		margin-block-end: 20px;
 		justify-self: end;
 		inline-size: 50%;
-		margin-block-end: 10px;
 	}
 
 	.main {
@@ -352,6 +369,7 @@
 
 @media (width >=1024px) {
 	.header__theme-menu {
+		padding-block-start: 0;
 		justify-self: center;
 		align-self: start;
 	}
@@ -362,20 +380,16 @@
 
 	.header__title {
 		margin-inline-start: -2%;
-		margin-block-end: -25px;
-	}
-
-	.header__text {
-		margin-block-end: 0px;
+		padding-top: 45px;
 	}
 }
 
 @media (hover: hover) {
 	.header__theme-menu-button:hover {
-		border: 1px solid var(--button-color, #ff0070);
+		border: 1px solid var(--border-color);
 	}
 
 	.section-link:hover {
-		border-block-end: 1px solid var(--main-text-color);
+		border-block-end: 1px solid currentColor;
 	}
 }

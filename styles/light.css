@@ -12,11 +12,14 @@
 	--title-section-color: var(--main-text-color);
 	--title-content: var(--main-text-color);
 	--title-shadow: #ff0070;
+	--border-color: rgba(50, 49, 45, 0.4);
+	--corners-color: var(--main-text-color);
 	--link-shadow: #f1b2ce;
 	--header-text-color: var(--main-text-color);
 	--button-color: var(--main-text-color);
 	--bg-cover: url('../images/cover-image-light.png');
 
+	background-color: var(--main-color);
 	background-image: var(--bg-cover);
 }
 
@@ -33,10 +36,14 @@
 		--title-section-color: var(--main-text-color);
 		--title-content: var(--main-text-color);
 		--title-shadow: #ff0070;
+		--border-color: rgba(50, 49, 45, 0.4);
+		--corners-color: var(--main-text-color);
 		--link-shadow: #f1b2ce;
 		--header-text-color: var(--main-text-color);
 		--button-color: var(--main-text-color);
 		--bg-cover: url('../images/cover-image-light.png');
+
+		background-color: var(--main-color);
 		background-image: var(--bg-cover);
 	}
 
